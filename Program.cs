@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionU")));
 
 builder.Services.AddScoped<CategoriaRepository>();
+builder.Services.AddScoped<TiposIDRepository>();
 
 builder.Services.AddControllers();
 
