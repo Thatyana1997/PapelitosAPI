@@ -21,22 +21,22 @@ namespace PapelitosAPI.Controladores
 
         [HttpPost]
 
-        public async Task<IActionResult> CrearTipoID([FromBody] TipoID tipoID)
+        public async Task<IActionResult> CrearTiposID([FromBody] TipoID tipoID)
         {
-            await _repository.CrearTipoID(tipoID);
+            await _repository.CrearTiposID(tipoID);
             return Ok(tipoID);
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<TipoID>>> LeerTiposID()
+        public async Task<ActionResult<List<TiposID>>> LeerTiposID()
         {
             return await _repository.LeerTiposID();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TipoID>> BuscarTipoIDPorId(int id)
+        public async Task<ActionResult<TiposID>> BuscarTipoIDPorId(int id)
         {
-            var tipoID = await _repository.BuscarTipoIDPorId(id);
+            var tipoID = await _repository.BuscarTiposIDPorId(id);
             if (tipoID == null)
             {
                 return NotFound();
@@ -45,25 +45,25 @@ namespace PapelitosAPI.Controladores
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> ModificarTipoID(int id, [FromBody] TipoID tipoID)
+        public async Task<IActionResult> ModificarTiposID(int id, [FromBody] TipoID tipoID)
         {
             if (id != tipoID.Id)
             {
                 return BadRequest("El ID de la ruta no coincide con el ID del cuerpo.");
             }
-            await _repository.ModificarTipoID(tipoID);
+            await _repository.ModificarTiposID(tipoID);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
 
-        public async Task<IActionResult> EliminarTipoID(int id, [FromQuery] string usuarioModificacion)
+        public async Task<IActionResult> EliminarTiposID(int id, [FromQuery] string usuarioModificacion)
         {
             if (string.IsNullOrEmpty(usuarioModificacion))
             {
                 return BadRequest("Se requiere el usuario que realiza la eliminación para la auditoría.");
             }
-            await _repository.EliminarTipoID(id, usuarioModificacion);
+            await _repository.EliminarTiposID(id, usuarioModificacion);
             return NoContent();
         }
 
