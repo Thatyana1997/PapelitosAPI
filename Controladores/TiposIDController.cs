@@ -5,6 +5,10 @@ using PapelitosAPI.Repositorios;
 
 namespace PapelitosAPI.Controladores
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
+
     public class TiposIDController : ControllerBase
 
     {

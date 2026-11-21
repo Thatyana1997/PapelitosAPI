@@ -9,7 +9,7 @@ namespace PapelitosAPI
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<TiposID> TiposID { get; set; }
-        public DbSet<TiposID> TiposID { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
