@@ -11,7 +11,7 @@ namespace PapelitosAPI.Repositorios
             _context = context;
         }
 
-        public async Task CrearTelefono(Telefono telefono)
+        public async Task CrearTelefono(Telefonos telefono)
         {
             var parameters = new[]
             {
@@ -38,7 +38,7 @@ namespace PapelitosAPI.Repositorios
             return await _context.Telefonos.FromSqlRaw("EXEC sp_ListarTelefonos").ToListAsync();
         }
 
-        public async Task ModificarTelefono(Telefono telefono)
+        public async Task ModificarTelefono(Telefonos telefono)
         {
             var parameters = new[]
             {

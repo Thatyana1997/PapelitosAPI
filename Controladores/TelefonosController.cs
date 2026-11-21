@@ -15,53 +15,37 @@ namespace PapelitosAPI.Controladores
         }
 
         [HttpPost]
-        public async Task<IActionResult> CrearTelefono([FromBody] Telefono telefono)
+        public async Task<IActionResult> CrearTelefono([FromBody] Telefonos telefono)
         {
-            await _repository.CrearTelefono(categoria);
+            await _repository.CrearTelefono(telefono);
             // Nota: Como el ID es autoincremental en BD, el objeto devuelto 
             // podría no tener el ID actualizado a menos que el SP lo retorne.
             return Ok(telefono);
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Categoria>>> LeerCategorias()
+        public async Task<ActionResult<List<Telefonos>>> LeerTelefono()
         {
-            return await _repository.LeerCategorias();
+            return await _repository.LeerTelefono();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Categoria>> BuscarCategoriaPorId(int id)
-        {
-            var categoria = await _repository.BuscarCategoriaPorId(id);
-            if (categoria == null)
-            {
-                return NotFound();
-            }
-            return categoria;
-        }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> ModificarCategoria(int id, [FromBody] Categoria categoria)
+        public async Task<IActionResult> ModificarTelefono(int id, [FromBody] Telefonos telefono)
         {
-            if (id != categoria.Id)
+            if (id != telefono.Id)
             {
                 return BadRequest("El ID de la ruta no coincide con el ID del cuerpo.");
             }
 
-            await _repository.ModificarCategoria(categoria);
+            await _repository.ModificarTelefono(telefono);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> EliminarCategoria(int id, [FromQuery] string usuarioModificacion)
+        public async Task<IActionResult> EliminarTelefono(int id)
         {
-            // Se requiere el usuario que realiza la eliminación para la auditoría
-            if (string.IsNullOrEmpty(usuarioModificacion))
-            {
-                return BadRequest("El usuario de modificación es requerido para la eliminación.");
-            }
-
-            await _repository.EliminarCategoria(id, usuarioModificacion);
+            await _repository.EliminarTelefono(id, usuarioModificacion);
             return NoContent();
         }
     }
