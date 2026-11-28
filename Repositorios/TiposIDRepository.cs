@@ -13,11 +13,7 @@ namespace PapelitosAPI.Repositorios
         {
             _context = context;
         }
-            
-    
-       
-
-    
+             
 
     public async Task CrearTipoID(TiposID tipoID)
         {

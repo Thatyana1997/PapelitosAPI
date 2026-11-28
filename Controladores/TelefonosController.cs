@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc; //ajuste de la profe
 using PapelitosAPI.Modelos;
 using PapelitosAPI.Repositorios;
 
@@ -8,9 +8,9 @@ namespace PapelitosAPI.Controladores
     [ApiController]
     public class TelefonosController : ControllerBase
     {
-        private readonly TelefonoRepositorio _repository;
+        private readonly Telefonorepositorio _repository;  //ajuste de la profe
 
-        public TelefonosController(TelefonoRepositorio repository)
+        public TelefonosController(Telefonorepositorio repository) //ajuste de la profe
         {
             _repository = repository;
         }
@@ -27,7 +27,7 @@ namespace PapelitosAPI.Controladores
         [HttpGet]
         public async Task<ActionResult<List<Telefonos>>> LeerTelefono()
         {
-            return await _repository.LeerTelefono();
+            return await _repository.LeerTelefonos(); //ajuste de la profe
         }
 
 
@@ -46,7 +46,7 @@ namespace PapelitosAPI.Controladores
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarTelefono(int id)
         {
-            await _repository.EliminarTelefono(id, usuarioModificacion);
+            await _repository.EliminarTelefono(id);  //ajuste de la profe
             return NoContent();
         }
     }

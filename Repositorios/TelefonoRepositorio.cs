@@ -1,4 +1,6 @@
-﻿using PapelitosAPI.Modelos;
+﻿using Microsoft.Data.SqlClient; //ajuste de la profe
+using Microsoft.EntityFrameworkCore; //ajuste de la profe
+using PapelitosAPI.Modelos;
 
 namespace PapelitosAPI.Repositorios
 {
@@ -33,7 +35,7 @@ namespace PapelitosAPI.Repositorios
             }
         }
 
-        public async Task<List<Telefono>> LeerTelefonos()
+        public async Task<List<Telefonos>> LeerTelefonos() //ajuste de la profe
         {
             return await _context.Telefonos.FromSqlRaw("EXEC sp_ListarTelefonos").ToListAsync();
         }

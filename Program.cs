@@ -10,6 +10,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<CategoriaRepository>();
 builder.Services.AddScoped<TiposIDRepository>();
+builder.Services.AddScoped<ProductoRepository>();
+builder.Services.AddScoped<FormasPagoRepository>();
+builder.Services.AddScoped<DistritoRepository>();
+builder.Services.AddScoped<RolRepository>();
+builder.Services.AddScoped<ParametroRepository>();
+builder.Services.AddScoped<CantonRepository>();
+builder.Services.AddScoped<ProvinciaRepository>();
+builder.Services.AddScoped<FacturaRepositorio>();
+builder.Services.AddScoped<ClienteRepository>();
+builder.Services.AddScoped<Telefonorepositorio>();
+builder.Services.AddScoped<EmisorRepositorio>(); //tuve que completar 
+builder.Services.AddScoped<InventarioRepository>();
+builder.Services.AddScoped<DetalleFacturaRepository>();
+
+
 
 builder.Services.AddControllers();
 
